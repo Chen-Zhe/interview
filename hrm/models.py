@@ -17,9 +17,15 @@ class Organization(models.Model):
     name = models.CharField(max_length=50)
     manager = models.ForeignKey(User, related_name="organization")
     application_limit = models.IntegerField() # limit of application per person
+    ongoing_interview = models.BooleanField()
 
 class Portfolio(models.Model):
     organization = models.ForeignKey(Organization, related_name="portfolio")
     name = models.CharField(max_length=50)
     description = models.CharField(max_length=400)
     number_of_position = models.IntegerField()
+
+class QueueList(models.Model):
+    organization = models.ForeignKey(Organization, related_name='current_queue')
+    portfolio = models.CharField(max_length=50)
+    interviewee = models.CharField(max_length=100)
