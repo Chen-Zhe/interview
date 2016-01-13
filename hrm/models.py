@@ -11,11 +11,12 @@ class UserProfile(models.Model):
 
     user = models.OneToOneField(User, related_name="profile")
     type = models.CharField(max_length=1, choices=USER_TYPE)
+    preferred_name = models.CharField(max_length=100)
 
 class Organization(models.Model):
     name = models.CharField(max_length=50)
-    max_position = models.IntegerField()
     manager = models.ForeignKey(User, related_name="organization")
+    application_limit = models.IntegerField() # limit of application per person
 
 class Portfolio(models.Model):
     organization = models.ForeignKey(Organization, related_name="portfolio")
