@@ -10,7 +10,7 @@ class UserProfile(models.Model):
     )
 
     user = models.OneToOneField(User, related_name="profile")
-    type = models.CharField(max_length=1, choices=USER_TYPE)
+    type = models.CharField(max_length=2, choices=USER_TYPE)
     preferred_name = models.CharField(max_length=100)
 
 class Organization(models.Model):
