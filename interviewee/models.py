@@ -2,24 +2,29 @@ from django.db import models
 from django.contrib.auth.models import User
 from hrm.models import Portfolio
 
+
 class Interviewee(models.Model):
-    user = models.ForeignKey(User,related_name="interviewee")
+    user = models.OneToOneField(User,related_name="interviewee")
     matric_no = models.CharField(max_length=9)
-    birthday = models.DateField()
+    name = models.CharField(max_length=50)
+    # birthday = models.DateField()
+    study_year = models.IntegerField()
+    study_major = models.CharField(max_length=50)
 
 
 class InterviewApplication(models.Model):
     STATUS = (
         ('n', 'NIL'),
-        ('w', 'Pending Action'),
-        ('r', 'Offer Rejected'),
-        ('a', 'Offer Accepted'),
+        ('c', 'calling'),
+        ('i', 'interviewing'),
+        ('a', 'absent'),
+        ('d', 'done'), #done
+        # ('r', 'Offer Rejected'),
+        # ('a', 'Offer Accepted'),
     )
 
     portfolio = models.ForeignKey(Portfolio, related_name="applications")
     Interviewee = models.ForeignKey(Interviewee)
-    study_year = models.IntegerField()
-    study_major = models.CharField(max_length=50)
     reason = models.CharField(max_length=500) # write up
 
     interviewer_comments = models.CharField(max_length=500)
