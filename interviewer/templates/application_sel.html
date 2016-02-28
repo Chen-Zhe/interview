@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Interviewer - Choose Applicants</title>
+</head>
+<body>
+Click on an applicant's name to call on the applicant
+<br>
+{% for app in applications %}
+    <a href="/interview/{{ app.id}}/call/">app.interviewee.user.first_name app.interviewee.user.last_name</a>
+{% endfor %}
+</body>
+</html>
