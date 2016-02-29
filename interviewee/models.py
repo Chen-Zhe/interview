@@ -14,8 +14,7 @@ class Interviewee(models.Model):
 class InterviewApplication(models.Model):
     STATUS = (
         ('n', 'NIL'),
-        ('c', 'calling'),
-        ('i', 'interviewing'),
+        ('i', 'interviewed'),
         ('a', 'absent'),
         ('d', 'done'), #done
         # ('r', 'Offer Rejected'),

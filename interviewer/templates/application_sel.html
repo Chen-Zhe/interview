@@ -8,7 +8,7 @@
 Click on an applicant's name to call on the applicant
 <br>
 {% for app in applications %}
-    <a href="/interview/{{ app.id}}/call/">app.interviewee.user.first_name app.interviewee.user.last_name</a>
+    <a href="/interview/{{ app.id}}/call/">app.interviewee.name</a>
 {% endfor %}
 </body>
 </html>

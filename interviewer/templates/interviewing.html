@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Interviewing {{ application.interviewee.name }}</title>
+</head>
+<body>
+<h1>Interviewing {{ application.interviewee.name }}</h1>
+Interviewee Information:
+Matric No.: {{ application.interviewee.matric_no }}<br>
+Study Year: {{ application.interviewee.study_year }}<br>
+Study Major: {{ application.interviewee.study_major }}<br>
+Reason of application: {{ application.reason }}<br>
+
+<form>
+    {% csrf_token %}
+    <textarea rows="4" cols="50" name="comments">Your comments here</textarea>
+    <input type="submit" value="Submit">
+    <input type="reset" value="Reset">
+</form>
+</body>
+</html>

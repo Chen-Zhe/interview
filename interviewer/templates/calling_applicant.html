@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Calling {{ application.interviewee.name }}</title>
+</head>
+<body>
+<h1>Calling {{ application.interviewee.name }}</h1>
+Basic Information:
+Matric No.: {{ application.interviewee.matric_no }}<br>
+Study Year: {{ application.interviewee.study_year }}<br>
+Study Major: {{ application.interviewee.study_major }}<br>
+Reason of application: {{ application.reason }}<br>
+
+<a href="/interview/{{ application.id }}/action/cancel/">Cancel</a>
+<br>
+<a href="/interview/{{ application.id }}/action/interview/">Proceed to Interview</a>
+</body>
+</html>

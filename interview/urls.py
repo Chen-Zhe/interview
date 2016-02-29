@@ -25,4 +25,8 @@ urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^', include(router.urls)),
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
+    url(r'^interview/port_sel/$', "interviewer.views.portfolio_selection"),
+    url(r'^interview/port/(?P<port_id>\d+)/$', "interviewer.views.all_applications"),
+    url(r'^interview/(?P<application_id>\d+)/call/$', "interviewer.views.calling_applicant"),
+    url(r'^interview/(?P<application_id>\d+)/action/(?P<action>\w+)/$', "interviewer.views.calling_applicant"),
 ]
