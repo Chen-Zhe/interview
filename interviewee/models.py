@@ -24,7 +24,7 @@ class InterviewApplication(models.Model):
     portfolio = models.ForeignKey(Portfolio, related_name="applications")
     interviewee = models.ForeignKey(Interviewee)
     reason = models.CharField(max_length=500) # write up
-    Interviewee = models.ForeignKey(Interviewee)
+    Interviewee = models.ForeignKey(Interviewee,related_name="interviewee")
     reason = models.CharField(max_length=500)  # write up
 
     interviewer_comments = models.CharField(max_length=500)
