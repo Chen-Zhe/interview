@@ -4,13 +4,13 @@ from hrm.models import Portfolio
 
 
 class Interviewee(models.Model):
-    user = models.OneToOneField(User,related_name="interviewee")
+    user = models.ForeignKey(User,related_name="interviewee")
     matric_no = models.CharField(max_length=9)
     name = models.CharField(max_length=50)
     # birthday = models.DateField()
     study_year = models.IntegerField()
     study_major = models.CharField(max_length=50)
-
+    phone = models.IntegerField()
 
 class InterviewApplication(models.Model):
     STATUS = (
@@ -25,7 +25,7 @@ class InterviewApplication(models.Model):
 
     portfolio = models.ForeignKey(Portfolio, related_name="applications")
     Interviewee = models.ForeignKey(Interviewee)
-    reason = models.CharField(max_length=500) # write up
+    reason = models.CharField(max_length=500)  # write up
 
     interviewer_comments = models.CharField(max_length=500)
     short_listed = models.BooleanField()

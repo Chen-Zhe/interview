@@ -1,0 +1,115 @@
+{% load rest_framework %}
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html>
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+      <meta name="robots" content="NONE,NOARCHIVE" />
+    <title>Interview Registration</title>
+        <link rel="stylesheet" type="text/css" href="/static/rest_framework/css/bootstrap.min.css"/>
+        <link rel="stylesheet" type="text/css" href="/static/rest_framework/css/bootstrap-tweaks.css"/>
+      <link rel="stylesheet" type="text/css" href="/static/rest_framework/css/prettify.css"/>
+      <link rel="stylesheet" type="text/css" href="/static/rest_framework/css/default.css"/>
+</head>
+<body class="">
+
+  <div class="wrapper">
+      <div class="navbar navbar-static-top navbar-inverse">
+        <div class="container">
+          <span>
+              <a class='navbar-brand' rel="nofollow" >
+                  Interview Registration <span class="version">0.0.1</span>
+              </a>
+          </span>
+          <ul class="nav navbar-nav pull-right">
+              {% block userlinks %}
+              {% if user.is_authenticated %}
+                {% optional_logout request user %}
+              {% else %}
+                <li><a href='/login/'>Log in</a></li>
+              {% endif %}
+            {% endblock %}
+
+
+          </ul>
+        </div>
+      </div>
+
+    <div class="container">
+        <ul class="breadcrumb"></ul>
+      <!-- Content -->
+      <div id="content">
+          <div class="content-main">
+            <div class="page-header">
+                <h1>Sign Up </h1>
+            </div>
+            <div style="float:left">
+                <p></p>
+            </div>
+          </div>
+
+
+
+
+              <div class="tabbable">
+
+                  <ul class="nav nav-tabs form-switcher">
+                    <li>
+                      <a name='html-tab' href="#post-object-form" data-toggle="tab">Interviewee</a>
+                    </li>
+
+                  </ul>
+
+
+                <div class="well tab-content">
+
+                    <div class="tab-pane" id="post-object-form">
+
+
+                            <form action="/reg/" method="POST" enctype="multipart/form-data" class="form-horizontal" novalidate>
+                                {% csrf_token %}
+                                {% render_form serializer template_pack='rest_framework/horizontal' %}
+
+
+                            <div class="form-actions">
+                              <button class="btn btn-primary" title="Make a POST request on the Interviewee List resource">Sign Up</button>
+                            </div>
+                            </form>
+                    </div>
+                </div>
+              </div>
+      </div><!-- /.content -->
+    </div><!-- /.container -->
+  </div><!-- ./wrapper -->
+
+
+    <script src="/static/rest_framework/js/jquery-1.11.3.min.js"></script>
+    <script src="/static/rest_framework/js/ajax-form.js"></script>
+    <script src="/static/rest_framework/js/csrf.js"></script>
+    <script src="/static/rest_framework/js/bootstrap.min.js"></script>
+    <script src="/static/rest_framework/js/prettify-min.js"></script>
+    <script src="/static/rest_framework/js/default.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('form').ajaxForm();
+        });
+    </script>
+
+
+
+
+</body>
+
+</html>
+
+{#<body>#}
+{#<form action="" method="post" novalidate>#}
+{#    {% csrf_token %}#}
+{#    {% render_form serializer template_pack='rest_framework/horizontal' %}#}
+{#    <div class="form-group">#}
+{#        <div class="col-sm-offset-2 col-sm-10">#}
+{#            <button type="submit" class="btn btn-default">Sign in</button>#}
+{#        </div>#}
+{#    </div>#}
+{#</form></body>#}
+{#</html>#}

@@ -12,7 +12,11 @@ class UserProfile(models.Model):
 
     user = models.OneToOneField(User, related_name="profile")
     type = models.CharField(max_length=2, choices=USER_TYPE)
-    preferred_name = models.CharField(max_length=100)
+
+    study_year = models.IntegerField()
+    study_major = models.CharField(max_length=50)
+    matric_no = models.CharField(max_length=9)
+    name = models.CharField(max_length=50)
 
 
 class Organization(models.Model):
