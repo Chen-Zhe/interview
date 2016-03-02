@@ -7,7 +7,6 @@ class Interviewee(models.Model):
     user = models.ForeignKey(User,related_name="interviewee")
     matric_no = models.CharField(max_length=9)
     name = models.CharField(max_length=50)
-    # birthday = models.DateField()
     study_year = models.IntegerField()
     study_major = models.CharField(max_length=50)
     phone = models.IntegerField()
@@ -15,8 +14,7 @@ class Interviewee(models.Model):
 class InterviewApplication(models.Model):
     STATUS = (
         ('n', 'NIL'),
-        ('c', 'calling'),
-        ('i', 'interviewing'),
+        ('i', 'interviewed'),
         ('a', 'absent'),
         ('d', 'done'), #done
         # ('r', 'Offer Rejected'),
@@ -24,6 +22,8 @@ class InterviewApplication(models.Model):
     )
 
     portfolio = models.ForeignKey(Portfolio, related_name="applications")
+    interviewee = models.ForeignKey(Interviewee)
+    reason = models.CharField(max_length=500) # write up
     Interviewee = models.ForeignKey(Interviewee)
     reason = models.CharField(max_length=500)  # write up
 
